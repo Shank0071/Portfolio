@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+    
+</head>
+<body>
+    <main>
+        <!--------------------- NavBar --------------------------->
+        <nav>
+            <div class="container">
+                <h1>Sankar P V</h1>
+                <ul id="sidemenu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#About">About</a></li>
+                    <li><a href="#Skills">Skills</a></li>
+                    <li><a href="#Portfolio">Portfolio</a></li>
+                    <li><a href="#Contact">Contact</a></li>
+                    <img src="images/multiply (1).svg" alt="multiply" onclick="closemenu()">
+                </ul>
+                <img src="images/bars.svg" alt="bars" onclick="openmenu()">
+            </div>
+        </nav>
+        <!----------------------- About Me ------------------------------>
+        <div class="container">
+            <div class="aboutblock" id="About">
+                <div class="img">
+                    <img src="images/IMG_20220407_063501.jpg" alt="my_img">
+                </div>
+                <div class="about">
+                    <p>I am Sankar P V, an aspiring <div class="highlight">Web Developer</div> who is self-taught.
+                        I am currently pursuing Metallurgical Engineering from Gce, Salem.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-------------------------- Tech Stacks ------------------------------------>
+        <div class="container">
+            <div class="tech">
+                <h1  id="Skills">Skills</h1>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Javascript</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+        </div>
+        <!--------------------------- Portfolio ------------------------------------------------->
+        <div class="container">
+            <div class="portfolioprojects" id="Portfolio">
+                <h1>Projects</h1>
+                <div class="projects">
+                    <div class="portfolio portfolio1">
+                        <a href="https://shank0071.github.io/time/"><div class="timetable hidden">Time Table</div></a>
+                    </div>
+                    <div class="portfolio portfolio2">
+                        <a href="https://shank0071.github.io/calculator/"><div class="timetable hidden">Calculator</div></a>
+                    </div>
+                    <div class="portfolio portfolio3">
+                        <a href="https://shank0071.github.io/drumkit/"><div class="timetable hidden">Drum Kit</div></a>
+                    </div>
+                    <div class="portfolio portfolio4">
+                        <a href="https://shank0071.github.io/diceGame/"><div class="timetable hidden">Dice Game</div></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!---------------------------- Contact Form --------------------------------------------->
+        <div class="container">
+            <div class="contact" id="Contact">
+                <h1>Contact</h1>
+                <form name="submit-to-google-sheet" autocomplete="off">
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="Name"  placeholder="Name" required>
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="Email" placeholder="Email" required>
+                    </div>
+                    <div>
+                        <label for="msg">Message</label>
+                        <textarea cols="30" rows="10" id="message" name="Message" placeholder="Your Message..."></textarea>
+                    </div>
+                    <div>
+                        <button class="btn" type="submit">Submit</button>
+                    </div>
+                    <div id="msg"></div>
+                    
+                </form>
+            </div>
+        </div>
+        <!---------------------------------- Slider ------------------------------------------------------->
+        <!-- <div class="slider">
+            <div class="slide slide1"></div>
+            <div class="slide slide2"></div>
+            <div class="slide slide3"></div>
+            <div class="slide slide4"></div>
+            <button class="btn-slide btn-slide-left"><</button>
+            <button class="btn-slide btn-slide-right">></button>
+        </div> -->
+        <!---------------------------------- Socials ------------------------------------------------------->
+        <footer>
+            <div class="container">
+                <div class="socials">
+                    <a href="https://www.linkedin.com/in/sankar-p-v-262214247/"><img src="images/linkedin (1).svg" alt="linkedin"></a>
+                    <a href="https://github.com/Shank0071"><img src="images/github (1).svg" alt="github"></a>
+                </div>
+            </div>
+        </footer>
+
+    </main> 
+    <script src="index.js"></script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz6MpSPYYns25gzb4YishH97ZBJ6uaiTCRR21xti7v8ORFfb6yru0jZwQZ3U9SBNRG1/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Message Sent Successfully!"
+                setTimeout(function() {msg.innerHTML = "";}, 5000)
+                form.reset()
+            })
+            .catch(error => {
+                msg.innerHTML = "An Error Occurred, Try Again Later....."
+            })
+        })
+      </script>
+</body>
+</html>
