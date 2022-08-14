@@ -385,7 +385,11 @@ nav img {
     display: none;
 }
 
-@media(max-width: 1000px) {
+@media(max-width: 820px) {
+    body {
+        overflow-x: hidden;
+    }
+
     nav h1 {
         text-align: center;
     }
@@ -414,10 +418,19 @@ nav img {
     }
 
     .container .aboutblock {
+        max-width: 100%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
+    }
+
+    .aboutblock img {
+        width: 100%;
+    }
+
+    .aboutblock .about {
+        font-size: medium;
     }
 
     .tech {
@@ -454,4 +467,54 @@ nav img {
     .contact h1 {
         margin-bottom: 2rem;
     }
+
+    .contact form div {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .contact form input,
+    .contact form textarea {
+        width: 100%;
+    }
 } 
+
+@media(max-width: 920px) {
+    .container .aboutblock {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .container .tech {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container .tech h1::after {
+        content: "";
+    }
+
+}
+
+@media(max-width: 280px) {
+
+    form .btn {
+        width: 100%;
+    }
+}
+
+@media(max-width: 1024px) {
+    .container .tech {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container .tech h1::after {
+        content: "";
+    }
+
+}
